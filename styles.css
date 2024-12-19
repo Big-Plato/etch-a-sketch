@@ -4,15 +4,21 @@ body {
     box-sizing: border-box;
     background-color:coral;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     top: 50px;
-
+    font-family: "Fira Sans", serif;
 }
 
+h1 {
+    font-style: italic;
+    color: white;
+    box-shadow: 2px solid black;
+}
 .container {
-    background-color: aqua;
+    background-color: coral;
     width: 1280px;
     height: 800px;
     display: flex;
@@ -20,16 +26,33 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    box-shadow:5px 5px -5px 5px black;
 }
 
 .square-div {
     background-color: white;
-    width: 70%;
-    height: 70%;
+    border-radius: 10px;
+    width: 900px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-/* .btn {
-    width: 200px;
-    height: 100px;
+.btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     background-color: yellow;
-} */
+}
+
+.square {
+    /* border: 1px solid black; */
+    flex: 1 1 12%;
+    max-height: 50%;
+    max-width: 50%;
+
+}
+
+.square:hover {
+    background-color: black;
+}
