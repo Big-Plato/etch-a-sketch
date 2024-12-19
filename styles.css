@@ -46,8 +46,8 @@ h1 {
 }
 
 .square {
-    /* border: 1px solid black; */
-    flex: 1 1 12%;
+    border: 1px solid black;
+    flex: 1 1 4%;
     max-height: 50%;
     max-width: 50%;
 

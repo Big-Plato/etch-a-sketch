@@ -60,7 +60,7 @@ function etchSketch() {
   eraseBtn.classList.add("btn");
   eraseBtn.textContent = "Erase";
 
-  // The click remove by the number of squares divided by two only, so to clear it up the user have to click many times, I'll fix that somehow
+  
   eraseBtn.addEventListener("click", () => {
     squareOfDivs.innerHTML = "";
   });
