@@ -22,6 +22,7 @@ h1 {
     width: 1280px;
     height: 800px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -34,8 +35,8 @@ h1 {
     border-radius: 10px;
     width: 900px;
     height: 600px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 0;
 }
 
 .btn {
@@ -45,13 +46,8 @@ h1 {
     background-color: yellow;
 }
 
-.square {
-    flex: 1 1 4%;
-    max-height: 50%;
-    max-width: 50%;
-
+.rgb-btn {
+    background-color: chartreuse;
+    padding: 10px;
 }
 
-.square:hover {
-    background-color: black;
-}

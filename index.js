@@ -1,69 +1,83 @@
 function etchSketch() {
   const container = document.querySelector(".container");
-  const buttonPrompt = document.createElement("button");
   const squareOfDivs = document.querySelector(".square-div");
 
-  let i = 0;
-  while (i < 32) {
-    let divBase = document.createElement("div");
-    divBase.className = "square";
-    squareOfDivs.appendChild(divBase);
-    i++;
-  }
 
+ // Initial grid 
+ createGrid(16);
+
+ // Buttons
+ const buttonPrompt = document.createElement("button");
+  buttonPrompt.style.cssText = "width: 100px; height: 50px; border-radius: 10px; background-color: yellow;";
+  buttonPrompt.textContent = "Number of squares";
   container.appendChild(buttonPrompt);
-  buttonPrompt.setAttribute(
-    "style",
-    "width: 200px; height: 50px; border-radius: 10px; background-color: yellow;"
-  );
-  buttonPrompt.textContent = "Set the number of squares";
+  
+  const buttonRGB = document.createElement("button");
+  buttonRGB.textContent = "Rainbow";
+  buttonRGB.classList.add("rgb-btn");
+  container.appendChild(buttonRGB);
 
-  let numberSquares;
+  const eraseBtn = document.createElement("button");
+  eraseBtn.classList.add("btn");
+  eraseBtn.textContent = "Erase";
+  container.appendChild(eraseBtn);
 
-  function setOpacity() {
-    this.setAttribute("style", "background-color: black;");
-  }
+  //Function to create the random color
+  const getRandomColour = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
+  };
 
-  // Create the divs based on the input of user
-  buttonPrompt.addEventListener("click", () => {
-    // Asks the user for a number between 0 and 100
-    do {
-      numberSquares = prompt("Set a number of squares");
-    } while (numberSquares > 100 || numberSquares < 0);
+  // Function that produces the divs squares, with grid now
+  function createGrid(size) {
+    squareOfDivs.innerHTML = "";
+    squareOfDivs.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    squareOfDivs.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-    numberSquares *= 2;
-    getSquares(numberSquares);
-
-    let selectedSquare = document.querySelectorAll(".square");
-    select(selectedSquare);
-  });
-
-  function getSquares(numberSquares) {
-    for (let i = 0; i < numberSquares + numberSquares; i++) {
-      let divSquare = document.createElement("div");
-      divSquare.className = "square";
-      console.log("div created");
-      squareOfDivs.appendChild(divSquare);
+    for (let i = 0; i < size * size; i++) {
+      const div = document.createElement("div");
+      div.classList.add("square");
+      squareOfDivs.appendChild(div);
     }
   }
 
-  
+  // Button to make the grid
+  buttonPrompt.addEventListener("click", () => {
+    let gridSize;
+    do {
+      gridSize = parseInt(prompt("Enter grid size (1- 100:"));
+    } while (gridSize < 1 || gridSize > 100);
 
-  function select (selectedSquare) {
-  selectedSquare.forEach((square) => {
-    square.addEventListener("mouseover", setOpacity);
-  });
-}
+    createGrid(gridSize);
+  })
 
-  const eraseBtn = document.createElement("button");
-  container.appendChild(eraseBtn);
-  eraseBtn.classList.add("btn");
-  eraseBtn.textContent = "Erase";
+  // Button RGB click
+  buttonRGB.addEventListener("click", () => {
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+      square.addEventListener("mouseover", () => {
+        square.style.backgroundColor = getRandomColour();
+      });
+    });
+  })
 
-  
+  // Now the erase button just turn the background color to white
   eraseBtn.addEventListener("click", () => {
-    squareOfDivs.innerHTML = "";
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+      square.style.backgroundColor = "white"
+    })
   });
+  
+  const squares = document.querySelectorAll(".square");
+  squares.forEach(square => {
+    square.addEventListener("mouseover", () => {
+      square.style.backgroundColor = "black";
+    });
+  });
+
 }
 
 etchSketch();
