@@ -2,13 +2,13 @@ body {
     margin: 0;
     border: 0;
     box-sizing: border-box;
-    background-color:coral;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 50px;
+    top: 30px;
     font-family: "Fira Sans", serif;
 }
 
@@ -18,36 +18,43 @@ h1 {
     box-shadow: 2px solid black;
 }
 .container {
-    background-color: coral;
-    width: 1280px;
-    height: 800px;
+    width: 1280;
+    height: 800;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row-reverse;
+    gap: 10px;
     box-shadow:5px 5px -5px 5px black;
 }
 
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
 .square-div {
     background-color: white;
     border-radius: 10px;
-    width: 900px;
-    height: 600px;
+    width: 700px;
+    height: 400px;
     display: grid;
     gap: 0;
 }
 
 .btn {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: yellow;
+    background-color: rgb(77, 189, 67);
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 2px 2px black;
+    width: 100px;
+    height: 100px;
+    color: white;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2em;
 }
 
 .rgb-btn {
-    background-color: chartreuse;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
     padding: 10px;
 }
 
