@@ -11,8 +11,6 @@ function etchSketch() {
   });
   }
 
-
-  
  // Initial grid 
  createGrid(16);
  defaultMove();
